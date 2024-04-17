@@ -51,6 +51,7 @@ $sqlauth | Set-Content $ENV:TEMP\auth.sql
 $sqlscript | Set-Content $ENV:TEMP\master.sql
 $EXITCODE = sqlcmd.exe -S localhost -E -i $ENV:TEMP\master.sql
 $AUTHCODE = sqlcmd.exe -S localhost -E -i $ENV:TEMP\auth.sql
+
 if($EXITCODE -ne 0){
     Write-Host "Database command status good: $EXITCODE"
 }else {
